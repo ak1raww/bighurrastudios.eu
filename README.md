@@ -1,1 +1,1 @@
-WORK IN PROGRESS
+Repo dedicata al sito di Bighurra per la roba elettorale, questo README non rimarrà così
