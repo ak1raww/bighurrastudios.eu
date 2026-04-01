@@ -17,16 +17,16 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 shadow-sm backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b bg-white/95 border-slate-200/80 shadow-sm backdrop-blur-xl">
       <div className="container flex items-center justify-between h-20">
         <Link to="/" className="flex flex-col">
-          <span className="text-lg font-semibold uppercase tracking-[0.24em] text-white">Fanceschini & Manente</span>
-          <span className="text-xs tracking-[0.2em] text-slate-400">Volti nuovi per la città</span>
+          <span className="text-lg font-semibold uppercase tracking-[0.24em] text-slate-900">Fanceschini & Manente</span>
+          <span className="text-xs tracking-[0.2em] text-slate-500">Volti nuovi per la città</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <Link key={link.name} to={link.path} className="text-sm font-medium text-slate-300 transition hover:text-white">
+            <Link key={link.name} to={link.path} className="text-sm font-medium text-slate-700 transition hover:text-primary">
               {link.name}
             </Link>
           ))}
@@ -43,7 +43,7 @@ const Header = () => {
 
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
+            {isOpen ? <X className="h-6 w-6 text-slate-900" /> : <Menu className="h-6 w-6 text-slate-900" />}
           </Button>
         </div>
       </div>
@@ -56,12 +56,12 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden"
           >
-            <div className="flex flex-col px-4 pt-4 pb-5 space-y-2 border-t border-white/10 bg-slate-950/95">
+            <div className="flex flex-col px-4 pt-4 pb-5 space-y-2 border-t border-slate-200/70 bg-white/95">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
-                  className="rounded-2xl px-4 py-3 text-base font-medium text-slate-200 transition hover:bg-slate-900 hover:text-white"
+                  className="rounded-2xl px-4 py-3 text-base font-medium text-slate-700 transition hover:bg-slate-50 hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

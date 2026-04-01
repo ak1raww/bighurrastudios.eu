@@ -85,7 +85,7 @@ const Candidato = () => {
                 <p className="text-sm text-primary font-medium font-sans">{member.role}</p>
               </CardHeader>
               <CardContent>
-                <p className="text-muted-foreground text-sm">{member.description}</p>
+                <p className="text-slate-600 text-sm">{member.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -94,7 +94,7 @@ const Candidato = () => {
         {/* Trasparenza */}
         <div className="mt-20 text-center">
           <h2 className="text-3xl font-bold mb-8">Trasparenza</h2>
-          <p className="mx-auto max-w-3xl text-slate-300 mb-10">
+          <p className="mx-auto max-w-3xl text-slate-600 mb-10">
             Rendiamo disponibili i documenti chiave della campagna per mostrare i nostri obiettivi, le dichiarazioni e gli incarichi in modo chiaro.
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -106,7 +106,7 @@ const Candidato = () => {
             ].map((item) => (
               <Button key={item.label} variant="outline" className="h-28 min-h-[7rem] flex flex-col items-start justify-center p-5 text-left">
                 <span className="text-base font-semibold">{item.label}</span>
-                <span className="text-sm text-slate-400">{item.description}</span>
+                <span className="text-sm text-slate-500">{item.description}</span>
               </Button>
             ))}
           </div>

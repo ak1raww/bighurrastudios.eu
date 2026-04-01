@@ -18,29 +18,29 @@ const events = [
 
 const Notizie = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-16 lg:py-24 bg-background">
       <div className="container max-w-5xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">Notizie & Eventi</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Notizie & Eventi</h1>
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Tutte le novità e gli appuntamenti della campagna raccolti in un unico spazio.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {articles.map((article) => (
-            <Card key={article.id} className="hover:shadow-lg transition-shadow cursor-pointer group border border-white/10 bg-slate-900/85">
+            <Card key={article.id} className="hover:shadow-lg transition-shadow cursor-pointer group border border-slate-200 bg-white">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="secondary">{article.category}</Badge>
-                  <div className="flex items-center text-xs text-muted-foreground gap-1">
+                  <div className="flex items-center text-xs text-slate-500 gap-1">
                     <CalendarDays className="w-3 h-3" />{article.date}
                   </div>
                 </div>
-                <CardTitle className="text-lg group-hover:text-primary transition-colors">{article.title}</CardTitle>
+                <CardTitle className="text-lg group-hover:text-primary transition-colors text-slate-900">{article.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription>{article.excerpt}</CardDescription>
+                <CardDescription className="text-slate-600">{article.excerpt}</CardDescription>
               </CardContent>
             </Card>
           ))}
@@ -50,10 +50,10 @@ const Notizie = () => {
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-3">
               <Badge variant="outline">Eventi</Badge>
-              <span className="text-sm text-slate-400">Appuntamenti aperti a tutti, aggiornati in tempo reale.</span>
+              <span className="text-sm text-slate-500">Appuntamenti aperti a tutti, aggiornati in tempo reale.</span>
             </div>
-            <h2 className="text-3xl font-bold text-white">Partecipa agli eventi in programma</h2>
-            <p className="mt-4 text-slate-300">Controlla le date, scegli l'appuntamento più vicino e fai sentire la tua voce.</p>
+            <h2 className="text-3xl font-bold text-slate-900">Partecipa agli eventi in programma</h2>
+            <p className="mt-4 text-slate-600">Controlla le date, scegli l'appuntamento più vicino e fai sentire la tua voce.</p>
           </div>
           <Button asChild variant="outline" size="sm" className="self-start">
             <Link to="/partecipa">Scarica i materiali</Link>
@@ -62,19 +62,19 @@ const Notizie = () => {
 
         <div className="mt-8 grid gap-6 md:grid-cols-2">
           {events.map((event) => (
-            <Card key={event.id} className="border border-white/10 bg-slate-900/85 shadow-2xl shadow-slate-950/20">
+            <Card key={event.id} className="border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
               <CardHeader>
                 <div className="flex items-center justify-between mb-3">
                   <Badge>{event.category}</Badge>
-                  <div className="flex items-center text-xs text-muted-foreground gap-1">
+                  <div className="flex items-center text-xs text-slate-500 gap-1">
                     <CalendarDays className="w-3 h-3" />{event.date}
                   </div>
                 </div>
-                <CardTitle className="text-lg text-white">{event.title}</CardTitle>
+                <CardTitle className="text-lg text-slate-900">{event.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-slate-300 mb-4">{event.description}</p>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                <p className="text-slate-600 mb-4">{event.description}</p>
+                <div className="flex items-center gap-2 text-sm text-slate-500">
                   <MapPin className="w-4 h-4" />{event.location}
                 </div>
               </CardContent>

@@ -19,18 +19,18 @@ const Partecipa = () => {
   };
 
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-16 lg:py-24 bg-background">
       <div className="container max-w-4xl">
         <div className="text-center mb-8">
-          <h1 className="text-4xl md:text-5xl font-bold">Partecipa</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Partecipa</h1>
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Il tuo contributo è fondamentale. Segnala un problema, scarica materiale per la stampa o scrivici se vuoi collaborare.
           </p>
         </div>
 
-        <div className="mb-10 rounded-3xl border border-primary/20 bg-primary/5 p-6 text-slate-100">
-          <p className="text-lg font-semibold text-white">Vuoi contribuire in modo più attivo?</p>
-          <p className="mt-2 text-slate-300">Scrivici direttamente per proporre idee, iniziative o collaborazioni.</p>
+        <div className="mb-10 rounded-3xl border border-primary/20 bg-primary/5 p-6 text-slate-900">
+          <p className="text-lg font-semibold text-slate-900">Vuoi contribuire in modo più attivo?</p>
+          <p className="mt-2 text-slate-700">Scrivici direttamente per proporre idee, iniziative o collaborazioni.</p>
           <Button asChild variant="outline" size="sm" className="mt-4">
             <Link to="/contatti">Contattaci</Link>
           </Button>
@@ -43,10 +43,10 @@ const Partecipa = () => {
           </TabsList>
 
           <TabsContent value="segnala">
-            <Card>
+            <Card className="border border-slate-200 bg-white shadow-lg shadow-slate-200/30">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2"><AlertTriangle className="w-5 h-5" /> Segnala un Problema</CardTitle>
-                <CardDescription>Aiutaci a conoscere i problemi del tuo quartiere.</CardDescription>
+                <CardTitle className="flex items-center gap-2 text-slate-900"><AlertTriangle className="w-5 h-5 text-primary" /> Segnala un Problema</CardTitle>
+                <CardDescription className="text-slate-600">Aiutaci a conoscere i problemi del tuo quartiere.</CardDescription>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleReportSubmit} className="space-y-4">
@@ -63,16 +63,16 @@ const Partecipa = () => {
           </TabsContent>
 
           <TabsContent value="materiali">
-            <Card>
+            <Card className="border border-slate-200 bg-white shadow-lg shadow-slate-200/30">
               <CardHeader>
-                <CardTitle className="flex items-center gap-2"><Download className="w-5 h-5" /> Scarica Materiali</CardTitle>
-                <CardDescription>Scarica volantini, banner e contenuti per i social media.</CardDescription>
+                <CardTitle className="flex items-center gap-2 text-slate-900"><Download className="w-5 h-5 text-primary" /> Scarica Materiali</CardTitle>
+                <CardDescription className="text-slate-600">Scarica volantini, banner e contenuti per i social media.</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   {['Volantino Ufficiale', 'Banner Social Media', 'Locandina A3', 'Kit Grafico Completo'].map((item) => (
-                    <div key={item} className="flex items-center justify-between p-4 border rounded-lg">
-                      <span className="font-medium">{item}</span>
+                    <div key={item} className="flex items-center justify-between p-4 border border-slate-200 rounded-lg bg-slate-50">
+                      <span className="font-medium text-slate-900">{item}</span>
                       <Button variant="outline" size="sm"><Download className="mr-2 h-4 w-4" /> Scarica</Button>
                     </div>
                   ))}

@@ -19,11 +19,11 @@ const faqs = [
 
 const ComeVotare = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-16 lg:py-24 bg-background">
       <div className="container max-w-4xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">Come Votare</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Come Votare</h1>
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Tutte le informazioni necessarie per esprimere il tuo voto in modo corretto e consapevole.
           </p>
         </div>
@@ -31,40 +31,40 @@ const ComeVotare = () => {
         <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] mb-16">
           <div className="grid gap-6">
             {steps.map((step) => (
-              <Card key={step.title} className="border border-white/10 bg-slate-900/85 shadow-2xl shadow-slate-950/20">
+              <Card key={step.title} className="border border-slate-200 bg-white shadow-lg shadow-slate-200/40">
                 <CardHeader>
                   <div className="p-3 bg-primary/10 text-primary rounded-lg w-fit">{step.icon}</div>
-                  <CardTitle className="mt-4 text-xl text-white">{step.title}</CardTitle>
+                  <CardTitle className="mt-4 text-xl text-slate-900">{step.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-300">{step.description}</p>
+                  <p className="text-slate-600">{step.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/20">
-            <div className="rounded-[2rem] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 shadow-inner shadow-slate-950/40">
+          <div className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-lg shadow-slate-200/40">
+            <div className="rounded-[2rem] bg-white p-6 shadow-sm">
               <div className="flex items-center gap-3">
                 <div className="rounded-3xl bg-primary/10 p-4 text-primary"><Edit3 className="w-6 h-6" /></div>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Guida visiva</p>
-                  <h2 className="text-2xl font-semibold text-white">Vota con chiarezza</h2>
+                  <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Guida visiva</p>
+                  <h2 className="text-2xl font-semibold text-slate-900">Vota con chiarezza</h2>
                 </div>
               </div>
 
               <div className="mt-8 space-y-4">
-                <div className="rounded-3xl bg-slate-900/75 p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">1. Controlla il seggio</p>
-                  <p className="mt-2 text-slate-300">Verifica indirizzo e orari sulla tessera elettorale e parti con anticipo.</p>
+                <div className="rounded-3xl bg-slate-50 p-4 border border-slate-200">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500">1. Controlla il seggio</p>
+                  <p className="mt-2 text-slate-600">Verifica indirizzo e orari sulla tessera elettorale e parti con anticipo.</p>
                 </div>
-                <div className="rounded-3xl bg-slate-900/75 p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">2. Porta i documenti</p>
-                  <p className="mt-2 text-slate-300">Tessera elettorale e documento d'identità sono essenziali.</p>
+                <div className="rounded-3xl bg-slate-50 p-4 border border-slate-200">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500">2. Porta i documenti</p>
+                  <p className="mt-2 text-slate-600">Tessera elettorale e documento d'identità sono essenziali.</p>
                 </div>
-                <div className="rounded-3xl bg-slate-900/75 p-4">
-                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">3. Segna la X</p>
-                  <p className="mt-2 text-slate-300">Marca il simbolo della lista e verifica che il nome sia corretto.</p>
+                <div className="rounded-3xl bg-slate-50 p-4 border border-slate-200">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-500">3. Segna la X</p>
+                  <p className="mt-2 text-slate-600">Marca il simbolo della lista e verifica che il nome sia corretto.</p>
                 </div>
               </div>
             </div>
@@ -73,35 +73,35 @@ const ComeVotare = () => {
 
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-8">Domande Frequenti</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8 text-slate-900">Domande Frequenti</h2>
             <Accordion type="single" collapsible className="w-full space-y-2">
               {faqs.map((faq, index) => (
-                <AccordionItem key={index} value={`faq-${index}`} className="border rounded-lg px-4">
-                  <AccordionTrigger className="hover:no-underline text-left font-sans">{faq.q}</AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                <AccordionItem key={index} value={`faq-${index}`} className="border border-slate-200 rounded-lg px-4">
+                  <AccordionTrigger className="hover:no-underline text-left font-sans text-slate-900">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-slate-600">{faq.a}</AccordionContent>
                 </AccordionItem>
               ))}
             </Accordion>
           </div>
 
-          <div className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/20">
+          <div className="rounded-[2rem] border border-slate-200 bg-white p-8 shadow-lg shadow-slate-200/30">
             <div className="text-center">
-              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Consigli utili</p>
-              <h3 className="mt-4 text-3xl font-semibold text-white">Preparati senza dubbi</h3>
-              <p className="mt-4 text-slate-300">Un breve riepilogo visivo per evitare errori al seggio.</p>
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-500">Consigli utili</p>
+              <h3 className="mt-4 text-3xl font-semibold text-slate-900">Preparati senza dubbi</h3>
+              <p className="mt-4 text-slate-600">Un breve riepilogo visivo per evitare errori al seggio.</p>
             </div>
             <div className="mt-8 grid gap-4">
-              <div className="rounded-3xl bg-slate-900/80 p-5">
-                <div className="text-sm uppercase tracking-[0.24em] text-slate-400">Checklist</div>
-                <ul className="mt-4 space-y-2 text-slate-300">
+              <div className="rounded-3xl bg-slate-50 p-5 border border-slate-200">
+                <div className="text-sm uppercase tracking-[0.24em] text-slate-500">Checklist</div>
+                <ul className="mt-4 space-y-2 text-slate-600">
                   <li>• Tessera elettorale</li>
                   <li>• Documento d'identità</li>
                   <li>• Orario del seggio</li>
                 </ul>
               </div>
-              <div className="rounded-3xl bg-slate-900/80 p-5">
-                <div className="text-sm uppercase tracking-[0.24em] text-slate-400">Suggerimento</div>
-                <p className="mt-2 text-slate-300">Segna con calma la X e verifica che il nome sia sul simbolo corretto.</p>
+              <div className="rounded-3xl bg-slate-50 p-5 border border-slate-200">
+                <div className="text-sm uppercase tracking-[0.24em] text-slate-500">Suggerimento</div>
+                <p className="mt-2 text-slate-600">Segna con calma la X e verifica che il nome sia sul simbolo corretto.</p>
               </div>
             </div>
           </div>

@@ -6,26 +6,26 @@
 
 @layer base {
   :root {
-    --background: 226 28% 6%;
-    --foreground: 210 16% 96%;
-    --card: 228 27% 12%;
-    --card-foreground: 210 16% 96%;
-    --popover: 228 27% 12%;
-    --popover-foreground: 210 16% 96%;
-    --primary: 210 100% 53%;
+    --background: 210 18% 96%;
+    --foreground: 222 12% 18%;
+    --card: 210 16% 100%;
+    --card-foreground: 222 12% 18%;
+    --popover: 210 16% 100%;
+    --popover-foreground: 222 12% 18%;
+    --primary: 211 100% 51%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 16% 22%;
-    --secondary-foreground: 210 16% 96%;
-    --muted: 223 24% 16%;
-    --muted-foreground: 215.4 16.3% 70%;
-    --accent: 284 87% 66%;
-    --accent-foreground: 210 16% 96%;
+    --secondary: 210 16% 88%;
+    --secondary-foreground: 222 12% 45%;
+    --muted: 210 16% 95%;
+    --muted-foreground: 222 12% 55%;
+    --accent: 342 85% 64%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 348 91% 57%;
-    --destructive-foreground: 210 16% 96%;
-    --border: 220 24% 18%;
-    --input: 220 24% 18%;
-    --ring: 210 100% 53%;
-    --radius: 0.75rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 16% 84%;
+    --input: 210 16% 96%;
+    --ring: 211 100% 51%;
+    --radius: 1rem;
 
     --font-sans: 'Inter', sans-serif;
     --font-serif: 'Lora', serif;
@@ -36,9 +36,9 @@
   }
 
   body {
-    @apply min-h-screen bg-slate-950 text-white antialiased;
+    @apply min-h-screen bg-background text-foreground antialiased;
     font-family: var(--font-sans);
-    background-image: radial-gradient(circle at top left, rgba(56,189,248,0.18), transparent 25%), radial-gradient(circle at 85% 10%, rgba(236,72,153,0.18), transparent 18%), linear-gradient(180deg, #020617 0%, #0f172a 100%);
+    background-image: radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 22%), radial-gradient(circle at 85% 10%, rgba(236,72,153,0.1), transparent 16%), linear-gradient(180deg, hsl(210 18% 98%) 0%, hsl(210 18% 94%) 100%);
   }
 
   *, *::before, *::after {

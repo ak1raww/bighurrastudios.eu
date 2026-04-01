@@ -15,11 +15,11 @@ const programAreas = [
 
 const Programma = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-16 lg:py-24 bg-background">
       <div className="container max-w-4xl">
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold">Il Nostro Programma</h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Il Nostro Programma</h1>
+          <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Un progetto concreto, misurabile e trasparente per la nostra città. Scopri le nostre proposte per ogni area tematica.
           </p>
           <Button variant="outline" className="mt-6">
@@ -29,29 +29,29 @@ const Programma = () => {
 
         <Accordion type="single" collapsible className="w-full space-y-4">
           {programAreas.map((area) => (
-            <AccordionItem key={area.id} value={area.id} className="border rounded-lg px-6">
-              <AccordionTrigger className="text-lg hover:no-underline">
+            <AccordionItem key={area.id} value={area.id} className="border border-slate-200 rounded-3xl bg-white shadow-sm shadow-slate-200/30">
+              <AccordionTrigger className="text-lg hover:no-underline text-slate-900">
                 <div className="flex items-center gap-3">
                   <span className="text-primary">{area.icon}</span>
                   {area.title}
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="space-y-4 text-base">
+              <AccordionContent className="space-y-4 text-base text-slate-600">
                 <div>
-                  <h4 className="font-semibold font-sans">Problema</h4>
-                  <p className="text-muted-foreground">{area.problem}</p>
+                  <h4 className="font-semibold font-sans text-slate-900">Problema</h4>
+                  <p>{area.problem}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold font-sans">Proposta</h4>
-                  <p className="text-muted-foreground">{area.proposal}</p>
+                  <h4 className="font-semibold font-sans text-slate-900">Proposta</h4>
+                  <p>{area.proposal}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold font-sans">Tempistiche</h4>
-                  <p className="text-muted-foreground">{area.timeline}</p>
+                  <h4 className="font-semibold font-sans text-slate-900">Tempistiche</h4>
+                  <p>{area.timeline}</p>
                 </div>
                 <div>
-                  <h4 className="font-semibold font-sans">Indicatori di Risultato</h4>
-                  <p className="text-muted-foreground">{area.indicators}</p>
+                  <h4 className="font-semibold font-sans text-slate-900">Indicatori di Risultato</h4>
+                  <p>{area.indicators}</p>
                 </div>
               </AccordionContent>
             </AccordionItem>
