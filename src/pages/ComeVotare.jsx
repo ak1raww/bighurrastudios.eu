@@ -1,20 +1,20 @@
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { CalendarDays, MapPin, CreditCard, PenTool } from 'lucide-react';
+import { CalendarDays, MapPin, CreditCard, PenTool, Edit3 } from 'lucide-react';
 
 const steps = [
-  { icon: <CalendarDays className="w-8 h-8" />, title: 'Date e Orari', description: 'Le elezioni si terranno il [Data]. I seggi saranno aperti dalle ore 7:00 alle ore 23:00.' },
-  { icon: <MapPin className="w-8 h-8" />, title: 'Dove si Vota', description: 'Recati al seggio elettorale indicato sulla tua tessera elettorale. Per trovare il tuo seggio, consulta il sito del Comune.' },
-  { icon: <CreditCard className="w-8 h-8" />, title: 'Cosa Portare', description: 'Porta con te un documento d\'identità valido (carta d\'identità, patente, passaporto) e la tessera elettorale.' },
-  { icon: <PenTool className="w-8 h-8" />, title: 'Come Esprimere la Preferenza', description: 'Sulla scheda elettorale, traccia una X sul simbolo della lista. Puoi scrivere accanto il cognome di uno o due candidati della stessa lista per esprimere la tua preferenza. Scrivi: FANCESCHINI e/o MANENTE.' },
+  { icon: <CalendarDays className="w-8 h-8" />, title: 'Date e Orari', description: 'Le elezioni si terranno il [Data]. I seggi saranno aperti dalle 7:00 alle 23:00.' },
+  { icon: <MapPin className="w-8 h-8" />, title: 'Dove si Vota', description: 'Recati al seggio indicato sulla tua tessera elettorale. Controlla la mappa del Comune prima di partire.' },
+  { icon: <CreditCard className="w-8 h-8" />, title: 'Cosa Portare', description: 'Tessera elettorale e documento valido: carta d\'identità, patente o passaporto.' },
+  { icon: <PenTool className="w-8 h-8" />, title: 'Come Esprimere la Preferenza', description: 'Segna una X sul simbolo della lista e, se vuoi, scrivi il cognome di uno o due candidati della stessa lista.' },
 ];
 
 const faqs = [
-  { q: 'Cosa succede se ho smarrito la tessera elettorale?', a: 'Puoi richiederne un duplicato presso l\'ufficio elettorale del tuo Comune. Nei giorni di votazione, l\'ufficio è aperto con orari prolungati.' },
-  { q: 'Posso esprimere più di una preferenza?', a: 'Sì, puoi esprimere fino a due preferenze, purché i candidati appartengano alla stessa lista e siano di genere diverso (un uomo e una donna).' },
-  { q: 'Posso votare una lista e scrivere la preferenza per un candidato di un\'altra lista?', a: 'No, il voto di preferenza deve essere espresso per candidati della stessa lista votata. In caso contrario, la preferenza viene annullata.' },
-  { q: 'Posso delegare qualcun altro a votare al posto mio?', a: 'No, il voto è personale e non delegabile. Solo gli elettori che necessitano di assistenza per disabilità possono essere accompagnati in cabina.' },
+  { q: 'Cosa succede se ho smarrito la tessera elettorale?', a: 'Puoi richiederne un duplicato presso l\'ufficio elettorale del Comune. Nei giorni di votazione è aperto con orari prolungati.' },
+  { q: 'Posso esprimere più di una preferenza?', a: 'Sì, fino a due preferenze, purché i candidati appartengano alla stessa lista e siano di genere diverso.' },
+  { q: 'Posso votare una lista e scrivere la preferenza per un candidato di un\'altra lista?', a: 'No, il voto di preferenza deve essere espresso per candidati della stessa lista votata. Altrimenti la preferenza viene annullata.' },
+  { q: 'Posso delegare qualcun altro a votare al posto mio?', a: 'No, il voto è personale. Solo chi ha bisogno di assistenza può essere accompagnato.' },
 ];
 
 const ComeVotare = () => {
@@ -28,42 +28,83 @@ const ComeVotare = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          {steps.map((step) => (
-            <Card key={step.title}>
-              <CardHeader>
-                <div className="p-3 bg-primary/10 text-primary rounded-lg w-fit">
-                  {step.icon}
-                </div>
-                <CardTitle className="mt-4 text-xl">{step.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{step.description}</p>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <div className="bg-primary text-primary-foreground rounded-2xl p-8 md:p-12 text-center mb-16">
-          <h2 className="text-2xl md:text-3xl font-bold">Scrivi sulla Scheda</h2>
-          <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
-            <span className="text-3xl md:text-4xl font-bold tracking-wide">FANCESCHINI</span>
-            <span className="text-xl text-primary-foreground/60">e</span>
-            <span className="text-3xl md:text-4xl font-bold tracking-wide">MANENTE</span>
-          </div>
-          <p className="mt-4 text-primary-foreground/80">Accanto al simbolo della lista che hai scelto.</p>
-        </div>
-
-        <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">Domande Frequenti</h2>
-          <Accordion type="single" collapsible className="w-full space-y-2">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`faq-${index}`} className="border rounded-lg px-4">
-                <AccordionTrigger className="hover:no-underline text-left font-sans">{faq.q}</AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
-              </AccordionItem>
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] mb-16">
+          <div className="grid gap-6">
+            {steps.map((step) => (
+              <Card key={step.title} className="border border-white/10 bg-slate-900/85 shadow-2xl shadow-slate-950/20">
+                <CardHeader>
+                  <div className="p-3 bg-primary/10 text-primary rounded-lg w-fit">{step.icon}</div>
+                  <CardTitle className="mt-4 text-xl text-white">{step.title}</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-slate-300">{step.description}</p>
+                </CardContent>
+              </Card>
             ))}
-          </Accordion>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/20">
+            <div className="rounded-[2rem] bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 p-6 shadow-inner shadow-slate-950/40">
+              <div className="flex items-center gap-3">
+                <div className="rounded-3xl bg-primary/10 p-4 text-primary"><Edit3 className="w-6 h-6" /></div>
+                <div>
+                  <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Guida visiva</p>
+                  <h2 className="text-2xl font-semibold text-white">Vota con chiarezza</h2>
+                </div>
+              </div>
+
+              <div className="mt-8 space-y-4">
+                <div className="rounded-3xl bg-slate-900/75 p-4">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">1. Controlla il seggio</p>
+                  <p className="mt-2 text-slate-300">Verifica indirizzo e orari sulla tessera elettorale e parti con anticipo.</p>
+                </div>
+                <div className="rounded-3xl bg-slate-900/75 p-4">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">2. Porta i documenti</p>
+                  <p className="mt-2 text-slate-300">Tessera elettorale e documento d'identità sono essenziali.</p>
+                </div>
+                <div className="rounded-3xl bg-slate-900/75 p-4">
+                  <p className="text-xs uppercase tracking-[0.24em] text-slate-400">3. Segna la X</p>
+                  <p className="mt-2 text-slate-300">Marca il simbolo della lista e verifica che il nome sia corretto.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+          <div>
+            <h2 className="text-2xl md:text-3xl font-bold mb-8">Domande Frequenti</h2>
+            <Accordion type="single" collapsible className="w-full space-y-2">
+              {faqs.map((faq, index) => (
+                <AccordionItem key={index} value={`faq-${index}`} className="border rounded-lg px-4">
+                  <AccordionTrigger className="hover:no-underline text-left font-sans">{faq.q}</AccordionTrigger>
+                  <AccordionContent className="text-muted-foreground">{faq.a}</AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
+
+          <div className="rounded-[2rem] border border-white/10 bg-slate-950/80 p-8 shadow-2xl shadow-slate-950/20">
+            <div className="text-center">
+              <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Consigli utili</p>
+              <h3 className="mt-4 text-3xl font-semibold text-white">Preparati senza dubbi</h3>
+              <p className="mt-4 text-slate-300">Un breve riepilogo visivo per evitare errori al seggio.</p>
+            </div>
+            <div className="mt-8 grid gap-4">
+              <div className="rounded-3xl bg-slate-900/80 p-5">
+                <div className="text-sm uppercase tracking-[0.24em] text-slate-400">Checklist</div>
+                <ul className="mt-4 space-y-2 text-slate-300">
+                  <li>• Tessera elettorale</li>
+                  <li>• Documento d'identità</li>
+                  <li>• Orario del seggio</li>
+                </ul>
+              </div>
+              <div className="rounded-3xl bg-slate-900/80 p-5">
+                <div className="text-sm uppercase tracking-[0.24em] text-slate-400">Suggerimento</div>
+                <p className="mt-2 text-slate-300">Segna con calma la X e verifica che il nome sia sul simbolo corretto.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

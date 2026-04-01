@@ -8,8 +8,7 @@ const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'Candidati', path: '/candidato' },
   { name: 'Programma', path: '/programma' },
-  { name: 'Notizie', path: '/notizie' },
-  { name: 'Eventi', path: '/eventi' },
+  { name: 'Notizie & Eventi', path: '/notizie' },
   { name: 'Come Votare', path: '/come-votare' },
   { name: 'Partecipa', path: '/partecipa' },
 ];

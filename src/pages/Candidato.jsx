@@ -6,7 +6,7 @@ import { Download, Heart, Eye, Users } from 'lucide-react';
 const teamMembers = [
   { name: 'Marco Bianchi', role: 'Portavoce', description: 'Esperto in comunicazione politica con oltre 10 anni di esperienza.' },
   { name: 'Laura Verdi', role: 'Responsabile Programma', description: 'Urbanista e consulente per la pubblica amministrazione.' },
-  { name: 'Andrea Rossi', role: 'Responsabile Volontari', description: 'Coordinatore di associazioni e movimenti civici locali.' },
+  { name: 'Andrea Rossi', role: 'Referente Coordinamento', description: 'Supporta le attività della squadra e i rapporti con le realtà civiche locali.' },
 ];
 
 const Candidato = () => {
@@ -94,11 +94,21 @@ const Candidato = () => {
         {/* Trasparenza */}
         <div className="mt-20 text-center">
           <h2 className="text-3xl font-bold mb-8">Trasparenza</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Button variant="outline"><Download className="mr-2 h-4 w-4" />CV Fanceschini</Button>
-            <Button variant="outline"><Download className="mr-2 h-4 w-4" />CV Manente</Button>
-            <Button variant="outline"><Download className="mr-2 h-4 w-4" />Dichiarazioni</Button>
-            <Button variant="outline"><Download className="mr-2 h-4 w-4" />Incarichi</Button>
+          <p className="mx-auto max-w-3xl text-slate-300 mb-10">
+            Rendiamo disponibili i documenti chiave della campagna per mostrare i nostri obiettivi, le dichiarazioni e gli incarichi in modo chiaro.
+          </p>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { label: 'CV Fanceschini', description: 'Il curriculum del candidato principale.' },
+              { label: 'CV Manente', description: 'Il profilo della candidata al fianco di Fanceschini.' },
+              { label: 'Dichiarazioni', description: 'Impegni e valori espressi pubblicamente.' },
+              { label: 'Incarichi', description: 'Ruoli e responsabilità della squadra in campagna.' },
+            ].map((item) => (
+              <Button key={item.label} variant="outline" className="h-28 min-h-[7rem] flex flex-col items-start justify-center p-5 text-left">
+                <span className="text-base font-semibold">{item.label}</span>
+                <span className="text-sm text-slate-400">{item.description}</span>
+              </Button>
+            ))}
           </div>
         </div>
       </div>

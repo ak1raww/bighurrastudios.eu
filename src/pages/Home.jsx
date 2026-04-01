@@ -1,13 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Badge } from '@/components/ui/badge';
+import { ArrowRight, CalendarDays } from 'lucide-react';
 
 const priorities = [
   { title: 'Mobilità e Viabilità', description: 'Soluzioni innovative per un traffico più fluido e trasporti pubblici efficienti.', icon: <ArrowRight className="w-6 h-6" /> },
   { title: 'Sicurezza e Decoro', description: 'Più controllo del territorio e interventi per una città più pulita e sicura per tutti.', icon: <ArrowRight className="w-6 h-6" /> },
   { title: 'Scuola e Giovani', description: "Investimenti per l'edilizia scolastica, la didattica e nuove opportunità per i giovani.", icon: <ArrowRight className="w-6 h-6" /> },
+];
+
+const updates = [
+  { id: 1, title: 'Aperitivo elettorale in Piazza Municipio', date: '5 Aprile', category: 'Evento', excerpt: 'Un momento informale per incontrare i candidati e ascoltare le proposte per il territorio.', path: '/eventi' },
+  { id: 2, title: 'Presentazione ufficiale della lista', date: '28 Marzo', category: 'Notizie', excerpt: 'Scopri la visione completa e le priorità del nostro progetto per la città.', path: '/notizie' },
+  { id: 3, title: 'Assemblea pubblica sulla mobilità', date: '10 Aprile', category: 'Evento', excerpt: 'Partecipa al dibattito sulle soluzioni per il traffico e i trasporti sostenibili.', path: '/eventi' },
 ];
 
 const Home = () => {
@@ -54,17 +61,41 @@ const Home = () => {
 
       <section className="py-16 lg:py-24 bg-slate-950/80">
         <div className="container">
-          <div className="grid gap-8 lg:grid-cols-3">
-            {priorities.map((item) => (
-              <Card key={item.title} className="border border-white/10 bg-slate-900/85 shadow-2xl shadow-slate-950/20">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
+            <div>
+              <span className="inline-flex rounded-full bg-primary/15 px-3 py-1 text-xs uppercase tracking-[0.28em] text-primary">Notizie & Eventi</span>
+              <h2 className="mt-4 text-3xl font-bold tracking-tight text-white sm:text-4xl">Tutto ciò che accade in una sola pagina</h2>
+              <p className="mt-3 max-w-2xl text-slate-300">Aggiorniamo costantemente le iniziative e gli appuntamenti della campagna così sai subito dove essere presente.</p>
+            </div>
+            <div className="flex flex-wrap gap-3">
+              <Button asChild variant="outline" size="sm">
+                <Link to="/notizie">Scopri tutti</Link>
+              </Button>
+              <Button asChild size="sm">
+                <Link to="/contatti">Contattaci</Link>
+              </Button>
+            </div>
+          </div>
+
+          <div className="grid gap-6 lg:grid-cols-3">
+            {updates.map((item) => (
+              <Card key={item.id} className="border border-white/10 bg-slate-900/85 shadow-2xl shadow-slate-950/20">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-white">
-                    {item.icon}
-                    {item.title}
-                  </CardTitle>
+                  <div className="flex items-center justify-between mb-3">
+                    <Badge variant={item.category === 'Evento' ? 'secondary' : 'outline'}>{item.category}</Badge>
+                    <div className="text-xs text-slate-400 flex items-center gap-1">
+                      <CalendarDays className="w-3.5 h-3.5" />
+                      {item.date}
+                    </div>
+                  </div>
+                  <CardTitle className="text-lg text-white">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-slate-300">{item.description}</p>
+                  <p className="text-slate-300">{item.excerpt}</p>
+                  <div className="mt-5 flex items-center gap-2 text-sm font-medium text-primary">
+                    <ArrowRight className="w-4 h-4" />
+                    <Link to={item.path} className="transition hover:text-primary/90">Vai alla notizia</Link>
+                  </div>
                 </CardContent>
               </Card>
             ))}
@@ -76,13 +107,13 @@ const Home = () => {
         <div className="container">
           <div className="mx-auto max-w-2xl rounded-[2rem] border border-white/10 bg-slate-950/80 p-12 text-center shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
             <h2 className="text-3xl font-bold text-white sm:text-4xl">Partecipa al cambiamento</h2>
-            <p className="mt-4 text-slate-300">Sostieni la campagna con un contributo, diventa volontario o condividi il messaggio con le persone della tua comunità.</p>
+            <p className="mt-4 text-slate-300">Hai un'idea da proporre? Vuoi collaborare con noi nella campagna? Scrivici e raccontaci il tuo punto di vista.</p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg">
-                <Link to="/partecipa">Diventa Volontario</Link>
+                <Link to="/contatti">Contattaci per collaborare</Link>
               </Button>
               <Button asChild variant="outline" size="lg">
-                <Link to="/contatti">Dona Ora</Link>
+                <Link to="/partecipa">Partecipa</Link>
               </Button>
             </div>
           </div>

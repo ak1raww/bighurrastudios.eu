@@ -1,22 +1,16 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { Send, UserPlus, Download, AlertTriangle } from 'lucide-react';
+import { Send, Download, AlertTriangle } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Partecipa = () => {
-  const [volunteerForm, setVolunteerForm] = useState({ name: '', email: '', phone: '', message: '' });
   const [reportForm, setReportForm] = useState({ name: '', email: '', subject: '', description: '' });
-
-  const handleVolunteerSubmit = (e) => {
-    e.preventDefault();
-    toast.success('Grazie per la tua candidatura! Ti contatteremo presto.');
-    setVolunteerForm({ name: '', email: '', phone: '', message: '' });
-  };
 
   const handleReportSubmit = (e) => {
     e.preventDefault();
@@ -27,39 +21,26 @@ const Partecipa = () => {
   return (
     <div className="py-16 lg:py-24">
       <div className="container max-w-4xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold">Partecipa</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
-            Il tuo contributo è fondamentale. Diventa volontario, segnala un problema o scarica i materiali della campagna.
+            Il tuo contributo è fondamentale. Segnala un problema, scarica materiale per la stampa o scrivici se vuoi collaborare.
           </p>
         </div>
 
-        <Tabs defaultValue="volontario" className="w-full">
-          <TabsList className="grid w-full grid-cols-3">
-            <TabsTrigger value="volontario">Volontario</TabsTrigger>
+        <div className="mb-10 rounded-3xl border border-primary/20 bg-primary/5 p-6 text-slate-100">
+          <p className="text-lg font-semibold text-white">Vuoi contribuire in modo più attivo?</p>
+          <p className="mt-2 text-slate-300">Scrivici direttamente per proporre idee, iniziative o collaborazioni.</p>
+          <Button asChild variant="outline" size="sm" className="mt-4">
+            <Link to="/contatti">Contattaci</Link>
+          </Button>
+        </div>
+
+        <Tabs defaultValue="segnala" className="w-full">
+          <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="segnala">Segnala</TabsTrigger>
             <TabsTrigger value="materiali">Materiali</TabsTrigger>
           </TabsList>
-
-          <TabsContent value="volontario">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2"><UserPlus className="w-5 h-5" /> Diventa Volontario</CardTitle>
-                <CardDescription>Compila il form per unirti al nostro team di volontari.</CardDescription>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleVolunteerSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div><Label htmlFor="v-name">Nome e Cognome</Label><Input id="v-name" value={volunteerForm.name} onChange={(e) => setVolunteerForm({ ...volunteerForm, name: e.target.value })} required /></div>
-                    <div><Label htmlFor="v-email">Email</Label><Input id="v-email" type="email" value={volunteerForm.email} onChange={(e) => setVolunteerForm({ ...volunteerForm, email: e.target.value })} required /></div>
-                  </div>
-                  <div><Label htmlFor="v-phone">Telefono</Label><Input id="v-phone" value={volunteerForm.phone} onChange={(e) => setVolunteerForm({ ...volunteerForm, phone: e.target.value })} /></div>
-                  <div><Label htmlFor="v-message">Come vorresti contribuire?</Label><Textarea id="v-message" value={volunteerForm.message} onChange={(e) => setVolunteerForm({ ...volunteerForm, message: e.target.value })} /></div>
-                  <Button type="submit" className="w-full"><Send className="mr-2 h-4 w-4" />Invia Candidatura</Button>
-                </form>
-              </CardContent>
-            </Card>
-          </TabsContent>
 
           <TabsContent value="segnala">
             <Card>
