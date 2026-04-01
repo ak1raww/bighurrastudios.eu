@@ -18,21 +18,21 @@ const Contatti = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Hero */}
-      <div className="bg-primary text-primary-foreground py-20 px-4 text-center">
+      <div className="bg-primary text-primary-foreground py-12 px-4 text-center">
         <h1 className="text-4xl md:text-5xl font-bold">Contattaci</h1>
         <p className="mt-4 text-lg text-primary-foreground/75 max-w-xl mx-auto">
           Hai domande o vuoi metterti in contatto con noi? Siamo qui per te.
         </p>
       </div>
 
-      <div className="container max-w-6xl py-16 lg:py-24">
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+      <div className="container max-w-6xl py-10 lg:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
 
           {/* Form — 3 cols */}
-          <div className="lg:col-span-3 bg-card rounded-2xl border shadow-sm p-8">
+          <div className="lg:col-span-3 bg-card rounded-2xl border shadow-sm p-5">
             <h2 className="text-2xl font-bold mb-6">Scrivici</h2>
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
                   <Label htmlFor="c-name">Nome completo</Label>
                   <Input id="c-name" placeholder="Mario Rossi" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required />
@@ -50,14 +50,14 @@ const Contatti = () => {
                 <Label htmlFor="c-message">Messaggio</Label>
                 <Textarea id="c-message" className="h-36 resize-none" placeholder="Scrivi il tuo messaggio..." value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} required />
               </div>
-              <Button type="submit" size="lg" className="w-full">
+              <Button type="submit" size="sm" className="w-full">
                 <Send className="mr-2 h-4 w-4" /> Invia Messaggio
               </Button>
             </form>
           </div>
 
           {/* Info + Mappa — 2 cols */}
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <div className="lg:col-span-2 flex flex-col gap-5">
             {/* Info cards */}
             <div className="space-y-4">
               <a href="mailto:info@fanceschinimanente.it" className="flex items-center gap-4 p-4 rounded-xl border bg-card hover:bg-muted transition-colors">
@@ -90,7 +90,7 @@ const Contatti = () => {
             </div>
 
             {/* Mappa */}
-            <div className="rounded-2xl overflow-hidden border shadow-sm flex-1 min-h-[220px]">
+            <div className="rounded-2xl overflow-hidden border shadow-sm flex-1 min-h-[200px]">
               <iframe
                 title="Venezia"
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45164.29!2d12.3155!3d45.4408!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eb1daf1d63d89%3A0x7ba3c6f0bd92102f!2sVenezia%20VE!5e0!3m2!1sit!2sit!4v1711900000000"

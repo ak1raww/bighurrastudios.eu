@@ -22,8 +22,8 @@ const Home = () => {
     <div className="flex flex-col">
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.12),_transparent_22%),radial-gradient(circle_at_80%_15%,_rgba(236,72,153,0.08),_transparent_16%)]" />
-        <div className="relative container min-h-[75vh] flex flex-col justify-center py-20">
-          <div className="max-w-4xl rounded-[2rem] border border-slate-200/80 bg-white/95 p-10 shadow-2xl shadow-slate-200/40 backdrop-blur-xl">
+        <div className="relative container min-h-[75vh] flex flex-col justify-center py-12">
+          <div className="max-w-4xl rounded-[2rem] border border-slate-200/80 bg-white/95 p-6 shadow-xl shadow-slate-200/30 backdrop-blur-xl">
             <span className="inline-flex rounded-full bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
               Verso una città più forte
             </span>
@@ -33,7 +33,7 @@ const Home = () => {
             <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-600">
               Più servizi, più sicurezza e più partecipazione: il futuro che vogliamo costruire insieme parte da idee chiare e azioni immediate.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg">
                 <Link to="/programma">Scopri il Programma</Link>
               </Button>
@@ -43,13 +43,13 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+          <div className="mt-10 grid gap-3 sm:grid-cols-3">
             {[
               { title: 'Mobilità', value: 'Trasporti moderni', description: 'Proposte per una viabilità più sostenibile e senza ingorghi.' },
               { title: 'Decoro', value: 'Spazi curati', description: 'Piazze, giardini e strade curate per una città più bella.' },
               { title: 'Giovani', value: 'Opportunità reali', description: 'Investimenti in formazione, cultura e sport per i più giovani.' },
             ].map((item) => (
-              <div key={item.title} className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-6 shadow-lg shadow-slate-200/30">
+              <div key={item.title} className="rounded-[1.75rem] border border-slate-200 bg-slate-50 p-4 shadow-sm shadow-slate-200/30">
                 <p className="text-sm uppercase tracking-[0.28em] text-slate-500">{item.title}</p>
                 <p className="mt-4 text-2xl font-semibold text-slate-900">{item.value}</p>
                 <p className="mt-3 text-sm leading-6 text-slate-600">{item.description}</p>
@@ -59,9 +59,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-slate-50">
+      <section className="py-10 lg:py-12 bg-slate-50">
         <div className="container">
-          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between mb-10">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-8">
             <div>
               <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs uppercase tracking-[0.28em] text-primary">Notizie & Eventi</span>
               <h2 className="mt-4 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Tutto ciò che accade in una sola pagina</h2>
@@ -77,9 +77,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="grid gap-6 lg:grid-cols-3">
+          <div className="grid gap-4 lg:grid-cols-3">
             {updates.map((item) => (
-              <Card key={item.id} className="border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
+              <Card key={item.id} className="border border-slate-200 bg-white shadow-sm shadow-slate-200/50">
                 <CardHeader>
                   <div className="flex items-center justify-between mb-3">
                     <Badge variant={item.category === 'Evento' ? 'secondary' : 'outline'}>{item.category}</Badge>
@@ -103,12 +103,12 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="py-16 lg:py-24 bg-slate-50">
+      <section className="py-10 lg:py-12 bg-slate-50">
         <div className="container">
-          <div className="mx-auto max-w-2xl rounded-[2rem] border border-slate-200 bg-white p-12 text-center shadow-lg shadow-slate-200/30">
+          <div className="mx-auto max-w-2xl rounded-[2rem] border border-slate-200 bg-white p-6 text-center shadow-sm shadow-slate-200/30">
             <h2 className="text-3xl font-bold text-slate-900 sm:text-4xl">Partecipa al cambiamento</h2>
             <p className="mt-4 text-slate-600">Hai un'idea da proporre? Vuoi collaborare con noi nella campagna? Scrivici e raccontaci il tuo punto di vista.</p>
-            <div className="mt-8 flex flex-wrap justify-center gap-4">
+            <div className="mt-5 flex flex-wrap justify-center gap-3">
               <Button asChild size="lg">
                 <Link to="/contatti">Contattaci per collaborare</Link>
               </Button>

@@ -13,18 +13,18 @@ const events = [
 
 const Eventi = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-10 lg:py-12">
       <div className="container max-w-4xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold">Eventi</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Partecipa ai nostri eventi. Incontraci di persona e facci sentire la tua voce.
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-4">
           {events.map((event) => (
-            <Card key={event.id} className="hover:shadow-lg transition-shadow">
+            <Card key={event.id} className="shadow-sm transition-shadow hover:shadow-md">
               <CardHeader>
                 <div className="flex flex-wrap items-center gap-3 mb-2">
                   <Badge>{event.type}</Badge>
@@ -34,7 +34,7 @@ const Eventi = () => {
                 </div>
                 <CardTitle className="text-xl">{event.title}</CardTitle>
               </CardHeader>
-              <CardContent className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <CardContent className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <CardDescription className="text-base">{event.description}</CardDescription>
                 <Button size="sm" className="whitespace-nowrap">Partecipa</Button>
               </CardContent>

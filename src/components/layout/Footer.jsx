@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
     <footer className="bg-slate-50 text-slate-700 border-t border-slate-200">
-      <div className="container py-14">
-        <div className="grid gap-10 lg:grid-cols-3">
+      <div className="container py-10">
+        <div className="grid gap-8 lg:grid-cols-3">
           <div className="space-y-4">
             <h3 className="text-2xl font-semibold text-slate-900">Fanceschini & Manente</h3>
             <p className="text-sm text-slate-600">Una squadra che crede in una città più inclusiva, sicura e moderna.</p>
@@ -29,9 +29,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-10 border-t border-slate-200 pt-6 text-center text-sm text-slate-500">
+        <div className="mt-8 border-t border-slate-200 pt-5 text-center text-sm text-slate-500">
           <p>&copy; {new Date().getFullYear()} Comitato Elettorale Fanceschini & Manente. Tutti i diritti riservati.</p>
-          <p className="mt-1">Design pulito, chiaro e accessibile.</p>
         </div>
       </div>
     </footer>

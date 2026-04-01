@@ -18,13 +18,13 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 border-b bg-white/95 border-slate-200/80 shadow-sm backdrop-blur-xl">
-      <div className="container flex items-center justify-between h-20">
+      <div className="container flex items-center justify-between h-16">
         <Link to="/" className="flex flex-col">
           <span className="text-lg font-semibold uppercase tracking-[0.24em] text-slate-900">Fanceschini & Manente</span>
           <span className="text-xs tracking-[0.2em] text-slate-500">Volti nuovi per la città</span>
         </Link>
 
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-4">
           {navLinks.map((link) => (
             <Link key={link.name} to={link.path} className="text-sm font-medium text-slate-700 transition hover:text-primary">
               {link.name}
@@ -56,7 +56,7 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden"
           >
-            <div className="flex flex-col px-4 pt-4 pb-5 space-y-2 border-t border-slate-200/70 bg-white/95">
+            <div className="flex flex-col px-3 pt-3 pb-4 space-y-2 border-t border-slate-200/70 bg-white/95">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}

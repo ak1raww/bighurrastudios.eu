@@ -18,18 +18,18 @@ const events = [
 
 const Notizie = () => {
   return (
-    <div className="py-16 lg:py-24 bg-background">
+    <div className="py-10 lg:py-12 bg-background">
       <div className="container max-w-5xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Notizie & Eventi</h1>
           <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Tutte le novità e gli appuntamenti della campagna raccolti in un unico spazio.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {articles.map((article) => (
-            <Card key={article.id} className="hover:shadow-lg transition-shadow cursor-pointer group border border-slate-200 bg-white">
+            <Card key={article.id} className="shadow-sm transition-shadow hover:shadow-md cursor-pointer group border border-slate-200 bg-white">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge variant="secondary">{article.category}</Badge>
@@ -46,7 +46,7 @@ const Notizie = () => {
           ))}
         </div>
 
-        <div className="mt-16 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+        <div className="mt-10 flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-3">
               <Badge variant="outline">Eventi</Badge>
@@ -60,9 +60,9 @@ const Notizie = () => {
           </Button>
         </div>
 
-        <div className="mt-8 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
           {events.map((event) => (
-            <Card key={event.id} className="border border-slate-200 bg-white shadow-lg shadow-slate-200/50">
+              <Card key={event.id} className="border border-slate-200 bg-white shadow-sm shadow-slate-200/50">
               <CardHeader>
                 <div className="flex items-center justify-between mb-3">
                   <Badge>{event.category}</Badge>

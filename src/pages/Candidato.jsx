@@ -11,9 +11,9 @@ const teamMembers = [
 
 const Candidato = () => {
   return (
-    <div className="py-16 lg:py-24">
+    <div className="py-10 lg:py-12">
       <div className="container max-w-5xl">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h1 className="text-4xl md:text-5xl font-bold">I Candidati</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Scopri chi siamo, i nostri valori e la squadra che ci supporta.
@@ -21,9 +21,9 @@ const Candidato = () => {
         </div>
 
         {/* Gabriele Fanceschini */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-          <div className="aspect-[4/5] bg-muted rounded-2xl flex items-center justify-center text-muted-foreground">
-            [Foto Gabriele Fanceschini]
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+          <div className="aspect-[4/5] overflow-hidden rounded-2xl bg-muted">
+            <img src="/images/candidati/gabriele-fanceschini.jpg" alt="Gabriele Fanceschini" className="h-full w-full object-cover" />
           </div>
           <div>
             <h2 className="text-3xl font-bold">Gabriele Fanceschini</h2>
@@ -42,14 +42,16 @@ const Candidato = () => {
                 <span className="font-medium">Motivazione: Restituire alla comunità ciò che ha ricevuto.</span>
               </div>
             </div>
-            <Button variant="outline" className="mt-6"><Download className="mr-2 h-4 w-4" />Scarica CV</Button>
+            <a href="/cv/CV-Fanceschini.pdf" download className="mt-6 inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-sm hover:bg-slate-50">
+              <Download className="h-4 w-4" /> Scarica CV
+            </a>
           </div>
         </div>
 
         {/* Denise Manente */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
-          <div className="order-1 md:order-2 aspect-[4/5] bg-muted rounded-2xl flex items-center justify-center text-muted-foreground">
-            [Foto Denise Manente]
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center mb-12">
+          <div className="order-1 md:order-2 overflow-hidden rounded-2xl bg-muted aspect-[4/5]">
+            <img src="/images/candidati/denise-manente.jpg" alt="Denise Manente" className="h-full w-full object-cover" />
           </div>
           <div className="order-2 md:order-1">
             <h2 className="text-3xl font-bold">Denise Manente</h2>
@@ -68,7 +70,9 @@ const Candidato = () => {
                 <span className="font-medium">Motivazione: Dare voce a chi non si sente rappresentato.</span>
               </div>
             </div>
-            <Button variant="outline" className="mt-6"><Download className="mr-2 h-4 w-4" />Scarica CV</Button>
+            <a href="/cv/CV-Manente.pdf" download className="mt-6 inline-flex items-center gap-2 rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-900 shadow-sm hover:bg-slate-50">
+              <Download className="h-4 w-4" /> Scarica CV
+            </a>
           </div>
         </div>
 
@@ -76,7 +80,7 @@ const Candidato = () => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold flex items-center justify-center gap-3"><Users className="w-7 h-7" /> Il Nostro Team</h2>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {teamMembers.map((member) => (
             <Card key={member.name}>
               <CardHeader>
@@ -92,22 +96,22 @@ const Candidato = () => {
         </div>
 
         {/* Trasparenza */}
-        <div className="mt-20 text-center">
+        <div className="mt-14 text-center">
           <h2 className="text-3xl font-bold mb-8">Trasparenza</h2>
           <p className="mx-auto max-w-3xl text-slate-600 mb-10">
             Rendiamo disponibili i documenti chiave della campagna per mostrare i nostri obiettivi, le dichiarazioni e gli incarichi in modo chiaro.
           </p>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { label: 'CV Fanceschini', description: 'Il curriculum del candidato principale.' },
-              { label: 'CV Manente', description: 'Il profilo della candidata al fianco di Fanceschini.' },
-              { label: 'Dichiarazioni', description: 'Impegni e valori espressi pubblicamente.' },
-              { label: 'Incarichi', description: 'Ruoli e responsabilità della squadra in campagna.' },
+              { label: 'CV Fanceschini', description: 'Il curriculum del candidato principale.', href: '/cv/CV-Fanceschini.pdf' },
+              { label: 'CV Manente', description: 'Il profilo della candidata al fianco di Fanceschini.', href: '/cv/CV-Manente.pdf' },
+              { label: 'Dichiarazioni', description: 'Impegni e valori espressi pubblicamente.', href: '/cv/Dichiarazioni.pdf' },
+              { label: 'Incarichi', description: 'Ruoli e responsabilità della squadra in campagna.', href: '/cv/Incarichi.pdf' },
             ].map((item) => (
-              <Button key={item.label} variant="outline" className="h-28 min-h-[7rem] flex flex-col items-start justify-center p-5 text-left">
-                <span className="text-base font-semibold">{item.label}</span>
-                <span className="text-sm text-slate-500">{item.description}</span>
-              </Button>
+              <a key={item.label} href={item.href} download className="rounded-3xl border border-slate-200 bg-white p-4 text-left shadow-sm min-w-0 transition hover:bg-slate-50">
+                <p className="text-base font-semibold text-slate-900 break-words">{item.label}</p>
+                <p className="mt-2 text-sm text-slate-500 break-words">{item.description}</p>
+              </a>
             ))}
           </div>
         </div>

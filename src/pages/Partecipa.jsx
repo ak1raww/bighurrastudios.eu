@@ -12,6 +12,13 @@ import { toast } from 'sonner';
 const Partecipa = () => {
   const [reportForm, setReportForm] = useState({ name: '', email: '', subject: '', description: '' });
 
+  const materialItems = [
+    { label: 'Volantino Ufficiale', href: '/cv/Volantino-Ufficiale.pdf' },
+    { label: 'Banner Social Media', href: '/cv/Banner-Social-Media.pdf' },
+    { label: 'Locandina A3', href: '/cv/Locandina-A3.pdf' },
+    { label: 'Kit Grafico Completo', href: '/cv/Kit-Grafico-Completo.zip' },
+  ];
+
   const handleReportSubmit = (e) => {
     e.preventDefault();
     toast.success('Segnalazione inviata con successo. Grazie!');
@@ -19,7 +26,7 @@ const Partecipa = () => {
   };
 
   return (
-    <div className="py-16 lg:py-24 bg-background">
+    <div className="py-10 lg:py-12 bg-background">
       <div className="container max-w-4xl">
         <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Partecipa</h1>
@@ -28,7 +35,7 @@ const Partecipa = () => {
           </p>
         </div>
 
-        <div className="mb-10 rounded-3xl border border-primary/20 bg-primary/5 p-6 text-slate-900">
+        <div className="mb-8 rounded-3xl border border-primary/20 bg-primary/5 p-4 text-slate-900">
           <p className="text-lg font-semibold text-slate-900">Vuoi contribuire in modo più attivo?</p>
           <p className="mt-2 text-slate-700">Scrivici direttamente per proporre idee, iniziative o collaborazioni.</p>
           <Button asChild variant="outline" size="sm" className="mt-4">
@@ -43,7 +50,7 @@ const Partecipa = () => {
           </TabsList>
 
           <TabsContent value="segnala">
-            <Card className="border border-slate-200 bg-white shadow-lg shadow-slate-200/30">
+              <Card className="border border-slate-200 bg-white shadow-sm shadow-slate-200/30">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-slate-900"><AlertTriangle className="w-5 h-5 text-primary" /> Segnala un Problema</CardTitle>
                 <CardDescription className="text-slate-600">Aiutaci a conoscere i problemi del tuo quartiere.</CardDescription>
@@ -63,17 +70,21 @@ const Partecipa = () => {
           </TabsContent>
 
           <TabsContent value="materiali">
-            <Card className="border border-slate-200 bg-white shadow-lg shadow-slate-200/30">
+            <Card className="border border-slate-200 bg-white shadow-sm shadow-slate-200/30">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-slate-900"><Download className="w-5 h-5 text-primary" /> Scarica Materiali</CardTitle>
                 <CardDescription className="text-slate-600">Scarica volantini, banner e contenuti per i social media.</CardDescription>
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {['Volantino Ufficiale', 'Banner Social Media', 'Locandina A3', 'Kit Grafico Completo'].map((item) => (
-                    <div key={item} className="flex items-center justify-between p-4 border border-slate-200 rounded-lg bg-slate-50">
-                      <span className="font-medium text-slate-900">{item}</span>
-                      <Button variant="outline" size="sm"><Download className="mr-2 h-4 w-4" /> Scarica</Button>
+                  {materialItems.map((item) => (
+                    <div key={item.label} className="flex items-center justify-between p-4 border border-slate-200 rounded-lg bg-slate-50">
+                      <span className="font-medium text-slate-900">{item.label}</span>
+                      <Button asChild variant="outline" size="sm">
+                        <a href={item.href} download>
+                          <Download className="mr-2 h-4 w-4" /> Scarica
+                        </a>
+                      </Button>
                     </div>
                   ))}
                 </div>

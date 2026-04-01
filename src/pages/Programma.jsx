@@ -15,15 +15,17 @@ const programAreas = [
 
 const Programma = () => {
   return (
-    <div className="py-16 lg:py-24 bg-background">
+    <div className="py-10 lg:py-12 bg-background">
       <div className="container max-w-4xl">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h1 className="text-4xl md:text-5xl font-bold text-slate-900">Il Nostro Programma</h1>
           <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
             Un progetto concreto, misurabile e trasparente per la nostra città. Scopri le nostre proposte per ogni area tematica.
           </p>
-          <Button variant="outline" className="mt-6">
-            <Download className="mr-2 h-4 w-4" /> Scarica il Programma Completo (PDF)
+          <Button asChild variant="outline" className="mt-5">
+            <a href="/cv/Programma-Completo.pdf" download>
+              <Download className="mr-2 h-4 w-4" /> Scarica il Programma Completo (PDF)
+            </a>
           </Button>
         </div>
 
@@ -31,27 +33,31 @@ const Programma = () => {
           {programAreas.map((area) => (
             <AccordionItem key={area.id} value={area.id} className="border border-slate-200 rounded-3xl bg-white shadow-sm shadow-slate-200/30">
               <AccordionTrigger className="text-lg hover:no-underline text-slate-900">
-                <div className="flex items-center gap-3">
-                  <span className="text-primary">{area.icon}</span>
-                  {area.title}
+                <div className="flex w-full items-center gap-4 rounded-3xl px-4 py-3 bg-slate-50">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-3xl bg-primary/10 text-primary">
+                    {area.icon}
+                  </div>
+                  <span className="text-left text-base font-semibold leading-none text-slate-900">{area.title}</span>
                 </div>
               </AccordionTrigger>
-              <AccordionContent className="space-y-4 text-base text-slate-600">
-                <div>
-                  <h4 className="font-semibold font-sans text-slate-900">Problema</h4>
-                  <p>{area.problem}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold font-sans text-slate-900">Proposta</h4>
-                  <p>{area.proposal}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold font-sans text-slate-900">Tempistiche</h4>
-                  <p>{area.timeline}</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold font-sans text-slate-900">Indicatori di Risultato</h4>
-                  <p>{area.indicators}</p>
+              <AccordionContent className="px-4 pb-4 text-slate-700 text-sm leading-7">
+                <div className="mx-auto max-w-3xl space-y-6 border-t border-slate-200/70 pt-5 text-left">
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Problema</p>
+                    <p className="text-base text-slate-700 text-justify">{area.problem}</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Proposta</p>
+                    <p className="text-base text-slate-700 text-justify">{area.proposal}</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Tempistiche</p>
+                    <p className="text-base text-slate-700 text-justify">{area.timeline}</p>
+                  </div>
+                  <div className="space-y-2">
+                    <p className="text-xs uppercase tracking-[0.28em] text-slate-500">Indicatori di Risultato</p>
+                    <p className="text-base text-slate-700 text-justify">{area.indicators}</p>
+                  </div>
                 </div>
               </AccordionContent>
             </AccordionItem>
