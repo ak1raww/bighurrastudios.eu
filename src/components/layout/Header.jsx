@@ -18,28 +18,37 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex items-center justify-between h-16">
-        <Link to="/" className="flex items-center space-x-2">
-          <span className="font-bold text-lg font-serif">Fanceschini & Manente</span>
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/90 shadow-sm backdrop-blur-xl">
+      <div className="container flex items-center justify-between h-20">
+        <Link to="/" className="flex flex-col">
+          <span className="text-lg font-semibold uppercase tracking-[0.24em] text-white">Fanceschini & Manente</span>
+          <span className="text-xs tracking-[0.2em] text-slate-400">Volti nuovi per la città</span>
         </Link>
-        <nav className="hidden md:flex items-center space-x-6">
+
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <Link key={link.name} to={link.path} className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary">
+            <Link key={link.name} to={link.path} className="text-sm font-medium text-slate-300 transition hover:text-white">
               {link.name}
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex items-center space-x-4">
-            <Button asChild variant="outline" size="sm"><Link to="/contatti">Contatti</Link></Button>
-            <Button size="sm">Dona</Button>
+
+        <div className="hidden md:flex items-center gap-3">
+          <Button asChild variant="outline" size="sm">
+            <Link to="/contatti">Contatti</Link>
+          </Button>
+          <Button asChild size="sm">
+            <Link to="/contatti">Dona</Link>
+          </Button>
         </div>
+
         <div className="md:hidden">
           <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isOpen ? <X className="h-6 w-6 text-white" /> : <Menu className="h-6 w-6 text-white" />}
           </Button>
         </div>
       </div>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -48,15 +57,24 @@ const Header = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden"
           >
-            <div className="flex flex-col px-4 pt-2 pb-4 space-y-2 border-t">
+            <div className="flex flex-col px-4 pt-4 pb-5 space-y-2 border-t border-white/10 bg-slate-950/95">
               {navLinks.map((link) => (
-                <Link key={link.name} to={link.path} className="px-3 py-2 text-base font-medium rounded-md text-muted-foreground hover:text-primary hover:bg-accent" onClick={() => setIsOpen(false)}>
+                <Link
+                  key={link.name}
+                  to={link.path}
+                  className="rounded-2xl px-4 py-3 text-base font-medium text-slate-200 transition hover:bg-slate-900 hover:text-white"
+                  onClick={() => setIsOpen(false)}
+                >
                   {link.name}
                 </Link>
               ))}
-               <div className="flex items-center space-x-4 pt-4">
-                <Button asChild variant="outline" className="w-full"><Link to="/contatti">Contatti</Link></Button>
-                <Button className="w-full">Dona</Button>
+              <div className="grid gap-3 pt-3">
+                <Button asChild variant="outline" className="w-full">
+                  <Link to="/contatti">Contatti</Link>
+                </Button>
+                <Button asChild className="w-full">
+                  <Link to="/contatti">Dona</Link>
+                </Button>
               </div>
             </div>
           </motion.div>

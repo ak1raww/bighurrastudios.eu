@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { ArrowRight, Vote, Users, Newspaper } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const priorities = [
@@ -13,101 +13,78 @@ const priorities = [
 const Home = () => {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative h-[60vh] md:h-[80vh] bg-cover bg-center text-white" style={{ backgroundImage: "url('https://media.base44.com/images/public/69cbe3a4cba65e3d856379e7/f01cfaf6f_generated_56efb621.png')" }}>
-        <div className="absolute inset-0 bg-black/50"></div>
-        <div className="relative container h-full flex flex-col items-center justify-center text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight">Gabriele Fanceschini & Denise Manente</h1>
-          <p className="mt-4 text-lg md:text-xl max-w-2xl text-primary-foreground/80">Insieme per il futuro: un nuovo inizio per la nostra città.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" className="bg-white text-primary hover:bg-gray-200">
-              <Link to="/programma">
-                Scopri il Programma <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <Link to="/partecipa">Partecipa</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Come Votare Section */}
-      <section className="py-16 lg:py-24 bg-secondary">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Come si vota</h2>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-muted-foreground">
-            Esprimere la tua preferenza è semplice. Segui le istruzioni e assicurati che il tuo voto sia valido.
-          </p>
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="flex flex-col items-center">
-              <div className="p-4 bg-primary text-primary-foreground rounded-full">
-                <Vote className="w-8 h-8" />
-              </div>
-              <h3 className="mt-4 text-xl font-semibold">Quando e Dove</h3>
-              <p className="mt-2 text-muted-foreground">Si vota il [Data]. Trova il tuo seggio elettorale.</p>
-            </div>
-            <div className="flex flex-col items-center">
-              <div className="p-4 bg-primary text-primary-foreground rounded-full">
-                <Users className="w-8 h-8" />
-              </div>
-              <h3 className="mt-4 text-xl font-semibold">La Preferenza</h3>
-              <p className="mt-2 text-muted-foreground">Scrivi i cognomi dei candidati accanto al simbolo della lista.</p>
-            </div>
-             <div className="flex flex-col items-center">
-              <div className="p-4 bg-primary text-primary-foreground rounded-full">
-                <Newspaper className="w-8 h-8" />
-              </div>
-              <h3 className="mt-4 text-xl font-semibold">Cosa Portare</h3>
-              <p className="mt-2 text-muted-foreground">{"Porta con te un documento d'identità valido e la tessera elettorale."}</p>
-            </div>
-          </div>
-          <Button asChild className="mt-10">
-            <Link to="/come-votare">Scopri di più</Link>
-          </Button>
-        </div>
-      </section>
-
-      {/* Priorities Section */}
-      <section className="py-16 lg:py-24">
-        <div className="container">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold">Le Nostre Priorità</h2>
-            <p className="mt-4 max-w-2xl mx-auto text-lg text-muted-foreground">
-              Ci concentreremo su questi punti chiave per migliorare la nostra comunità.
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_rgba(56,189,248,0.18),_transparent_20%),radial-gradient(circle_at_80%_15%,_rgba(236,72,153,0.16),_transparent_18%)]" />
+        <div className="relative container min-h-[75vh] flex flex-col justify-center py-20">
+          <div className="max-w-4xl rounded-[2rem] border border-white/10 bg-slate-950/80 p-10 shadow-2xl shadow-slate-950/40 backdrop-blur-xl">
+            <span className="inline-flex rounded-full bg-primary/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary">
+              Verso una città più forte
+            </span>
+            <h1 className="mt-6 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Un progetto nuovo, concreto e sostenibile per la nostra città
+            </h1>
+            <p className="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
+              Più servizi, più sicurezza e più partecipazione: il futuro che vogliamo costruire insieme parte da idee chiare e azioni immediate.
             </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Button asChild size="lg">
+                <Link to="/programma">Scopri il Programma</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/contatti">Contattaci</Link>
+              </Button>
+            </div>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          <div className="mt-12 grid gap-4 sm:grid-cols-3">
+            {[
+              { title: 'Mobilità', value: 'Trasporti moderni', description: 'Proposte per una viabilità più sostenibile e senza ingorghi.' },
+              { title: 'Decoro', value: 'Spazi curati', description: 'Piazze, giardini e strade curate per una città più bella.' },
+              { title: 'Giovani', value: 'Opportunità reali', description: 'Investimenti in formazione, cultura e sport per i più giovani.' },
+            ].map((item) => (
+              <div key={item.title} className="rounded-[1.75rem] border border-white/10 bg-slate-900/85 p-6 shadow-xl shadow-slate-950/20">
+                <p className="text-sm uppercase tracking-[0.28em] text-slate-400">{item.title}</p>
+                <p className="mt-4 text-2xl font-semibold text-white">{item.value}</p>
+                <p className="mt-3 text-sm leading-6 text-slate-300">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 lg:py-24 bg-slate-950/80">
+        <div className="container">
+          <div className="grid gap-8 lg:grid-cols-3">
             {priorities.map((item) => (
-              <Card key={item.title}>
+              <Card key={item.title} className="border border-white/10 bg-slate-900/85 shadow-2xl shadow-slate-950/20">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-3">
-                    {item.icon} {item.title}
+                  <CardTitle className="flex items-center gap-3 text-white">
+                    {item.icon}
+                    {item.title}
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{item.description}</p>
+                  <p className="text-slate-300">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
           </div>
         </div>
       </section>
-      
-      {/* Call to Action Section */}
-      <section className="py-16 lg:py-24 bg-primary text-primary-foreground">
-        <div className="container text-center">
-          <h2 className="text-3xl md:text-4xl font-bold">Entra in Azione. Fai la Differenza.</h2>
-          <p className="mt-4 max-w-3xl mx-auto text-lg text-primary-foreground/80">
-            Il tuo contributo è fondamentale. Unisciti a noi come volontario o sostieni la nostra campagna con una donazione.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            <Button asChild size="lg" variant="secondary" className="text-secondary-foreground">
-              <Link to="/partecipa">Diventa Volontario</Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-              <Link to="/dona">Dona Ora</Link>
-            </Button>
+
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-slate-900 via-slate-950 to-slate-900">
+        <div className="container">
+          <div className="mx-auto max-w-2xl rounded-[2rem] border border-white/10 bg-slate-950/80 p-12 text-center shadow-2xl shadow-slate-950/20 backdrop-blur-xl">
+            <h2 className="text-3xl font-bold text-white sm:text-4xl">Partecipa al cambiamento</h2>
+            <p className="mt-4 text-slate-300">Sostieni la campagna con un contributo, diventa volontario o condividi il messaggio con le persone della tua comunità.</p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg">
+                <Link to="/partecipa">Diventa Volontario</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg">
+                <Link to="/contatti">Dona Ora</Link>
+              </Button>
+            </div>
           </div>
         </div>
       </section>

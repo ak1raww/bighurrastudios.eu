@@ -1,39 +1,33 @@
-**Welcome to your Base44 project** 
+# Bighurra Studios Web App
 
-**About**
+Questo repository contiene l'applicazione React per il sito.
 
-View and Edit  your app on [Base44.com](http://Base44.com) 
+## Configurazione
 
-This project contains everything you need to run your app locally.
+1. Clona il repository
+2. Entra nella cartella del progetto
+3. Installa le dipendenze:
 
-**Edit the code in your local development environment**
-
-Any change pushed to the repo will also be reflected in the Base44 Builder.
-
-**Prerequisites:** 
-
-1. Clone the repository using the project's Git URL 
-2. Navigate to the project directory
-3. Install dependencies: `npm install`
-4. Create an `.env.local` file and set the right environment variables
-
-```
-VITE_BASE44_APP_ID=your_app_id
-VITE_BASE44_APP_BASE_URL=your_backend_url
-
-e.g.
-VITE_BASE44_APP_ID=cbef744a8545c389ef439ea6
-VITE_BASE44_APP_BASE_URL=https://my-to-do-list-81bfaad7.base44.app
+```bash
+npm install
 ```
 
-Run the app: `npm run dev`
+## Sviluppo
 
-**Publish your changes**
+Avvia il server di sviluppo con:
 
-Open [Base44.com](http://Base44.com) and click on Publish.
+```bash
+npm run dev
+```
 
-**Docs & Support**
+## Build
 
-Documentation: [https://docs.base44.com/Integrations/Using-GitHub](https://docs.base44.com/Integrations/Using-GitHub)
+Genera la versione ottimizzata per la produzione con:
 
-Support: [https://app.base44.com/support](https://app.base44.com/support)
+```bash
+npm run build
+```
+
+## Note
+
+Il progetto usa Vite, React, Tailwind CSS e React Router.
